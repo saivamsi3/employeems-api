@@ -25,7 +25,9 @@ app.use('/api/leave', leaveRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/dashboard', dashboardRouter)
 
-
+app.get("/", (req, res) => {
+  res.send("Employee Management API is running");
+});
 
 
 app.listen(process.env.PORT, () => {
