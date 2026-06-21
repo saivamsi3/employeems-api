@@ -1,88 +1,41 @@
-// import dotenv from 'dotenv'
-// dotenv.config()
-// import express from 'express'
-// import cors from 'cors'
-// import authRouter from './routes/auth.js'
-// import departmentRouter from './routes/department.js'
-// import employeeRouter from './routes/employee.js'
-// import salaryRouter from "./routes/salary.js"
-// import dashboardRouter from "./routes/dashboard.js"
-// import connectToDatabase from './db/db.js'
-// import leaveRouter from "./routes/leave.js"
-// import settingRouter from "./routes/setting.js"
-// // import  {userRegister} from "./userSeed.js"
+import dotenv from 'dotenv'
+dotenv.config()
+import express from 'express'
+import cors from 'cors'
+import authRouter from './routes/auth.js'
+import departmentRouter from './routes/department.js'
+import employeeRouter from './routes/employee.js'
+import salaryRouter from "./routes/salary.js"
+import dashboardRouter from "./routes/dashboard.js"
+import connectToDatabase from './db/db.js'
+import leaveRouter from "./routes/leave.js"
+import settingRouter from "./routes/setting.js"
+// import  {userRegister} from "./userSeed.js"
 
-// await connectToDatabase()
-// const app = express()
-// app.use(cors({
-//   origin: "http://employee-frontend-three.vercel.app",
-//   credentials:true
-// }))
-// app.use(express.json())
-// app.use(express.static("public/uploads"))
-// app.use('/api/auth', authRouter)
-// app.use('/api/department', departmentRouter)
-// app.use('/api/employee', employeeRouter)
-// app.use('/api/salary', salaryRouter)
-// app.use('/api/leave', leaveRouter)
-// app.use('/api/setting', settingRouter)
-// app.use('/api/dashboard', dashboardRouter)
+await connectToDatabase()
+const app = express()
+app.use(cors({
+  origin: "http://employee-frontend-three.vercel.app",
+  credentials:true
+}))
+app.use(express.json())
+app.use(express.static("public/uploads"))
+app.use('/api/auth', authRouter)
+app.use('/api/department', departmentRouter)
+app.use('/api/employee', employeeRouter)
+app.use('/api/salary', salaryRouter)
+app.use('/api/leave', leaveRouter)
+app.use('/api/setting', settingRouter)
+app.use('/api/dashboard', dashboardRouter)
 
-// app.get("/", (req, res) => {
-//   res.send("Employee Management API is running");
-// });
-// export default app;
-
-// // app.listen(process.env.PORT, () => {
-// //     console.log(`Server is Running on port ${process.env.PORT}`)
-// // })
-
-
-
-import dotenv from "dotenv";
-dotenv.config();
-
-import express from "express";
-import cors from "cors";
-
-import authRouter from "../routes/auth.js";
-import departmentRouter from "../routes/department.js";
-import employeeRouter from "../routes/employee.js";
-import salaryRouter from "../routes/salary.js";
-import dashboardRouter from "../routes/dashboard.js";
-import leaveRouter from "../routes/leave.js";
-import settingRouter from "../routes/setting.js";
-
-import connectToDatabase from "../db/db.js";
-
-const app = express();
-
-// Connect DB
-await connectToDatabase();
-
-// Middleware
-app.use(
-  cors({
-    origin: "https://employee-frontend-three.vercel.app",
-    credentials: true,
-  })
-);
-
-app.use(express.json());
-app.use(express.static("public/uploads"));
-
-// Routes
-app.use("/api/auth", authRouter);
-app.use("/api/department", departmentRouter);
-app.use("/api/employee", employeeRouter);
-app.use("/api/salary", salaryRouter);
-app.use("/api/leave", leaveRouter);
-app.use("/api/setting", settingRouter);
-app.use("/api/dashboard", dashboardRouter);
-
-// Test Route
 app.get("/", (req, res) => {
-  res.status(200).send("Employee Management API is running");
+  res.send("Employee Management API is running");
 });
+export default app;
 
-export default app; 
+// app.listen(process.env.PORT, () => {
+//     console.log(`Server is Running on port ${process.env.PORT}`)
+// })
+
+
+
