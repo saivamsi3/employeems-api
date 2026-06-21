@@ -28,8 +28,8 @@ app.use('/api/dashboard', dashboardRouter)
 app.get("/", (req, res) => {
   res.send("Employee Management API is running");
 });
+export default app;
 
-
-app.listen(process.env.PORT, () => {
-    console.log(`Server is Running on port ${process.env.PORT}`)
-})
+// app.listen(process.env.PORT, () => {
+//     console.log(`Server is Running on port ${process.env.PORT}`)
+// })
