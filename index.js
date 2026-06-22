@@ -13,13 +13,13 @@ import { connectDB } from "./config/db.js"
 
 
 const app = express()
-// app.use(cors({
-//   origin: [
-//     // "http://employee-frontend-three.vercel.app",
-//     "http://localhost:5000"
-//   ],
-//   credentials:true
-// }))
+app.use(cors({
+  origin: [
+    // "http://employee-frontend-three.vercel.app",
+    "http://localhost:5000"
+  ],
+  credentials:true
+}))
 app.use(cors());
 app.use(express.json())
 connectDB();
