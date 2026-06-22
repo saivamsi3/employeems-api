@@ -1,8 +1,12 @@
-import User from './models/User.js'
+import dotenv from 'dotenv';
+dotenv.config();
+import { connectDB } from '../config/db.js'
+import User from './User.js'
 import bcrypt from 'bcrypt'
 
 const userRegister = async () => {
     try {
+        await connectDB();
         const hashPassword = await bcrypt.hash("admin", 10)
         const newUser = new User({
             name: "Admin",

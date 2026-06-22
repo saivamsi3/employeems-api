@@ -1,5 +1,4 @@
-import dotenv from 'dotenv'
-dotenv.config()
+import "./config/env.js"
 import express from 'express'
 import cors from 'cors'
 import authRouter from './routes/auth.js'
@@ -7,18 +6,23 @@ import departmentRouter from './routes/department.js'
 import employeeRouter from './routes/employee.js'
 import salaryRouter from "./routes/salary.js"
 import dashboardRouter from "./routes/dashboard.js"
-import connectToDatabase from './db/db.js'
 import leaveRouter from "./routes/leave.js"
 import settingRouter from "./routes/setting.js"
+import { connectDB } from "./config/db.js"
 // import  {userRegister} from "./userSeed.js"
 
-await connectToDatabase()
+
 const app = express()
-app.use(cors({
-  origin: "http://employee-frontend-three.vercel.app",
-  credentials:true
-}))
+// app.use(cors({
+//   origin: [
+//     // "http://employee-frontend-three.vercel.app",
+//     "http://localhost:5000"
+//   ],
+//   credentials:true
+// }))
+app.use(cors());
 app.use(express.json())
+connectDB();
 app.use(express.static("public/uploads"))
 app.use('/api/auth', authRouter)
 app.use('/api/department', departmentRouter)
@@ -31,11 +35,11 @@ app.use('/api/dashboard', dashboardRouter)
 app.get("/", (req, res) => {
   res.send("Employee Management API is running");
 });
-export default app;
+// export default app;
 
-// app.listen(process.env.PORT, () => {
-//     console.log(`Server is Running on port ${process.env.PORT}`)
-// })
+app.listen(process.env.PORT, () => {
+    console.log(`Server is Running on port ${process.env.PORT}`)
+})
 
 
 
