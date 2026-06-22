@@ -24,13 +24,13 @@ app.use(cors());
 app.use(express.json())
 connectDB();
 app.use(express.static("public/uploads"))
-app.use('api/auth', authRouter)
-app.use('api/department', departmentRouter)
-app.use('api/employee', employeeRouter)
-app.use('api/salary', salaryRouter)
-app.use('api/leave', leaveRouter)
-app.use('api/setting', settingRouter)
-app.use('api/dashboard', dashboardRouter)
+app.use('/api/auth', authRouter)
+app.use('/api/department', departmentRouter)
+app.use('/api/employee', employeeRouter)
+app.use('/api/salary', salaryRouter)
+app.use('/api/leave', leaveRouter)
+app.use('/api/setting', settingRouter)
+app.use('/api/dashboard', dashboardRouter)
 
 app.get("/", (req, res) => {
   res.send("Employee Management API is running");
