@@ -1,6 +1,6 @@
 import express from "express"
 import authMiddleware from "../middleware/authMiddleware.js"
-import { addDepartment , getDepartments , getDepartment, updateDepartment , deleteDepartment} from "../controllers/DepartmentController.js"
+import { addDepartment , getDepartments , getDepartment, updateDepartment , deleteDepartment} from "../controllers/departmentController.js"
 const router = express.Router()
 
 router.get("/" , authMiddleware ,getDepartments )
