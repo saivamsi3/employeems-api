@@ -15,7 +15,7 @@ import { connectDB } from "./config/db.js"
 const app = express()
 app.use(cors({
   origin: [
-    // "http://employee-frontend-three.vercel.app",
+    'https://employeems-frontend-1.onrender.com',
     "http://localhost:5173"
   ],
   credentials:true
