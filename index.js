@@ -7,11 +7,9 @@ import employeeRouter from './routes/employee.js'
 import salaryRouter from "./routes/salary.js"
 import dashboardRouter from "./routes/dashboard.js"
 import leaveRouter from "./routes/leave.js"
-import attendanceRouter from "./routes/attendance.js"
 import settingRouter from "./routes/setting.js"
 import { connectDB } from "./config/db.js"
-// import  {userRegister} from "./userSeed.js"
-
+import attendanceRouter from "./routes/attendance.js"
 
 const app = express()
 app.use(cors({
@@ -33,6 +31,8 @@ app.use('/api/leave', leaveRouter)
 app.use('/api/attendance', attendanceRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/dashboard', dashboardRouter)
+app.use('/api/attendance', attendanceRouter)
+
 
 app.get("/", (req, res) => {
   res.send("Employee Management API is running");
