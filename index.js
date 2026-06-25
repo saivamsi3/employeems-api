@@ -7,6 +7,7 @@ import employeeRouter from './routes/employee.js'
 import salaryRouter from "./routes/salary.js"
 import dashboardRouter from "./routes/dashboard.js"
 import leaveRouter from "./routes/leave.js"
+import attendanceRouter from "./routes/attendance.js"
 import settingRouter from "./routes/setting.js"
 import { connectDB } from "./config/db.js"
 // import  {userRegister} from "./userSeed.js"
@@ -29,6 +30,7 @@ app.use('/api/department', departmentRouter)
 app.use('/api/employee', employeeRouter)
 app.use('/api/salary', salaryRouter)
 app.use('/api/leave', leaveRouter)
+app.use('/api/attendance', attendanceRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/dashboard', dashboardRouter)
 
