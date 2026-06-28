@@ -19,7 +19,6 @@ app.use(cors({
   ],
   credentials:true
 }))
-app.use(cors());
 app.use(express.json())
 connectDB();
 app.use(express.static("public/uploads"))
@@ -31,7 +30,6 @@ app.use('/api/leave', leaveRouter)
 app.use('/api/attendance', attendanceRouter)
 app.use('/api/setting', settingRouter)
 app.use('/api/dashboard', dashboardRouter)
-app.use('/api/attendance', attendanceRouter)
 
 
 app.get("/", (req, res) => {
